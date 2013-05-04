@@ -1,6 +1,7 @@
 debugger;
-var orginLocation = window.location;
-window.parent = {};
-window.parent.location = orginLocation;
-window.parent.top = {};
-window.parent.top.location = orginLocation;
+var orginAddEvent = window.addEventListener;
+window.addEventListener = function(){
+    alert('addEvent');
+    orginAddEvent.apply(this,arguments);
+}
+
